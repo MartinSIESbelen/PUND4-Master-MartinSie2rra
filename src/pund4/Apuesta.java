@@ -4,43 +4,57 @@
  */
 package pund4;
 
-
+/**
+ * comentario Clase 
+ */
 public class Apuesta {
 
-   
+ /**
+ * comentario get 
+ */
     public int getGoles_local() {
         return goles_local;
     }
 
-    
+/**
+ * comentario set 
+ */    
     public void setGoles_local(int goles_local) {
         this.goles_local = goles_local;
     }
 
-   
+/**
+ * comentario get 
+ */   
     public int getGoles_visitante() {
         return goles_visitante;
     }
 
-    
+/**
+ * comentario set 
+ */    
     public void setGoles_visitante(int goles_visitante) {
         this.goles_visitante = goles_visitante;
     }
 
-    
+/**
+ * comentario get
+ */    
     public int getApostado() {
         return apostado;
     }
 
-    
+/**
+ * comentario set 
+ */    
     public void setApostado(int apostado) {
         this.apostado = apostado;
     }
 
-    private int dinero_disp;
-    private int goles_local;
-    private int goles_visitante;
-    private int apostado;
+    protected int dinero_disp;
+    protected int goles_local;
+    protected int goles_visitante;
+    protected int apostado;
 
     /*Contructor por defecto*/
     public Apuesta() {
@@ -73,11 +87,11 @@ public class Apuesta {
             throw new Exception("No se puede apostar menos de 1€");
         }
 
-        if (dinero > dinero_disp) {
+        if (dinero > getDinero_disp()) {
             throw new Exception("No se puede apostar mas de lo que tienes");
         }
         {
-            dinero_disp = dinero - dinero_disp;
+            setDinero_disp(dinero - getDinero_disp());
             setApostado(dinero);
         }
     }
@@ -108,7 +122,7 @@ public class Apuesta {
         if (comprobar_resultado(cantidad_goles_local, cantidad_goles_visit) == false) {
             throw new Exception("No se puede cobrar una apuesta no acertada");
         }
-        dinero_disp = dinero_disp * 10;
+        setDinero_disp(getDinero_disp() * 10);
 
     }
 }
